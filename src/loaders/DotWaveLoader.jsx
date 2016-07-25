@@ -54,6 +54,10 @@ export default class DotWaveLoader extends Component {
     color: PropTypes.string
   };
 
+  static defaultProps = {
+    color: '#666'
+  };
+
   render() {
     const propsStyle = {
       background: this.props.color

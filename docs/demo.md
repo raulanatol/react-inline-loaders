@@ -1,17 +1,5 @@
 # Table of components
 
-## DotWaveLoader
-
-### Default 
-```jsx
-<DotWaveLoader/>
-
-```
-
-### Color property
-
-```jsx
-<DotWaveLoader color="#FF0000"/>
-
-```
-
+- [DotWaveLoader](demos/DotWaveLoader)
+- [CenterSquaresLoader](demos/CenterSquaresLoader)
+- [SimpleSpinnerLoader](demos/SimpleSpinnerLoader)

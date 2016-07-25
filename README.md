@@ -33,5 +33,8 @@ class App extends React.Component {
 
 ## License
 
+Adaptations from:
+ - http://codepen.io/Tbgse/pen/oxbmmL
+
 *react-inline-loaders* is available under MIT. See LICENSE for more details.
 
