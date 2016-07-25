@@ -1,5 +1,5 @@
 import Radium from 'radium';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 const moveItAnimation = Radium.keyframes({
   '0%': { transform: 'translateY(0px)' },
@@ -50,15 +50,22 @@ const style = {
 @Radium
 export default class DotWaveLoader extends Component {
 
+  static propTypes = {
+    color: PropTypes.string
+  };
+
   render() {
+    const propsStyle = {
+      background: this.props.color
+    };
     return (
       <div style={style.loader}>
         <div style={style.loaderDots}>
-          <div style={style.dot}/>
-          <div style={[style.dot, style.dot2]}/>
-          <div style={[style.dot, style.dot3]}/>
-          <div style={[style.dot, style.dot4]}/>
-          <div style={[style.dot, style.dot5]}/>
+          <div className="dot" style={[style.dot, propsStyle]}/>
+          <div className="dot" style={[style.dot, propsStyle, style.dot2]}/>
+          <div className="dot" style={[style.dot, propsStyle, style.dot3]}/>
+          <div className="dot" style={[style.dot, propsStyle, style.dot4]}/>
+          <div className="dot" style={[style.dot, propsStyle, style.dot5]}/>
         </div>
       </div>
     );
