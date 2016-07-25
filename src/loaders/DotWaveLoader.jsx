@@ -11,14 +11,12 @@ const moveItAnimation = Radium.keyframes({
 
 const style = {
   loader: {
-    background: '#fff',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     height: '50%',
     width: '45%',
     margin: '5%',
-    border: '1px solid #ddd',
     position: 'relative'
   },
   loaderDots: {

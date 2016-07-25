@@ -10,11 +10,14 @@ import 'react-ghfork/gh-fork-ribbon.css';
 import './main.css';
 import '../style.css';
 
+import { DotWaveLoader } from '../src/index';
+
 // Add your documentation imports here. These are available to
 // React specimen.
 const documentationImports = {
   React,
-  ReactDOM
+  ReactDOM,
+  DotWaveLoader
 };
 const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
 const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
@@ -29,7 +32,7 @@ const pages = [
     path: '/demo',
     title: 'Demo',
     imports: documentationImports,
-    component: require('./demo')
+    component: require('catalog/lib/loader!raw!./demo.md')
   }
 ];
 
@@ -48,7 +51,8 @@ ReactDOM.render(
       specimens={{
         javascript: props => <CodeSpecimen {...props} lang="javascript"/>,
         js: props => <CodeSpecimen {...props} lang="javascript"/>,
-        jsx: props => <ReactSpecimen {...props} />
+        jsx: props => <ReactSpecimen {...props} />,
+        bash: props => <CodeSpecimen {...props} lang="bash"/>,
       }}
       title={title}
     />

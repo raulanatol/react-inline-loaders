@@ -8,7 +8,7 @@ npm install --save react-inline-loaders
 
 ### Create a StyleRoot Component
 
-```jsx
+```js
 import {StyleRoot} from 'radium';
 
 class App extends React.Component {
@@ -24,7 +24,7 @@ class App extends React.Component {
 
 ### Include a react-inline-loader
 
-```jsx
+```js
 <DotWaveLoader/>
 ```
 
