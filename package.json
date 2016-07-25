@@ -30,7 +30,7 @@
     "gh-pages": "webpack",
     "gh-pages:deploy": "gh-pages -d gh-pages",
     "gh-pages:stats": "webpack --profile --json > stats.json",
-    "postinstall": "node lib/post_install.js",
+    "postinstall": "node --harmony --use_strict lib/post_install.js",
     "prepublish": "npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
     "start": "webpack-dev-server",
