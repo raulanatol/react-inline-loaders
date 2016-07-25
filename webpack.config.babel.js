@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import * as path from 'path';
 
 import webpack from 'webpack';
@@ -123,12 +124,12 @@ if (TARGET === 'start') {
 function NamedModulesPlugin(options) {
   this.options = options || {};
 }
-NamedModulesPlugin.prototype.apply = function (compiler) {
-  compiler.plugin('compilation', function (compilation) {
-    compilation.plugin('before-module-ids', function (modules) {
-      modules.forEach(function (module) {
+NamedModulesPlugin.prototype.apply = (compiler) => {
+  compiler.plugin('compilation', (compilation) => {
+    compilation.plugin('before-module-ids', (modules) => {
+      modules.forEach((module) => {
         if (module.id === null && module.libIdent) {
-          var id = module.libIdent({
+          const id = module.libIdent({
             context: this.options.context || compiler.options.context
           });
 
@@ -138,8 +139,8 @@ NamedModulesPlugin.prototype.apply = function (compiler) {
           }
         }
       }, this);
-    }.bind(this));
-  }.bind(this));
+    });
+  }).bind(this);
 };
 
 if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
@@ -219,7 +220,7 @@ if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
         }
       ]
     }
-  })
+  });
 }
 
 const distCommon = {
@@ -231,7 +232,7 @@ const distCommon = {
   },
   entry: config.paths.src,
   externals: {
-    'react': {
+    react: {
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'React',
@@ -259,7 +260,7 @@ const distCommon = {
 if (TARGET === 'dist') {
   module.exports = merge(distCommon, {
     output: {
-      filename: config.filename + '.js'
+      filename: `${config.filename}.js`
     }
   });
 }

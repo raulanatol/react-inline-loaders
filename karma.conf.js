@@ -1,4 +1,5 @@
 // Reference: http://karma-runner.github.io/0.13/config/configuration-file.html
+/* eslint-disable global-require */
 require('babel-register');
 
 module.exports = function karmaConfig(config) {
