@@ -4,7 +4,6 @@ tests/
 src/
 .*
 docs
-lib/
 karma.conf.js
 webpack.config.babel.js
 

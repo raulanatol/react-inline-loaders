@@ -8,7 +8,6 @@ import 'purecss/build/pure.css';
 import 'react-ghfork/gh-fork-ribbon.ie.css';
 import 'react-ghfork/gh-fork-ribbon.css';
 import './main.css';
-import '../style.css';
 
 import { DotWaveLoader, CenterSquaresLoader, SimpleSpinnerLoader } from '../src/index';
 
