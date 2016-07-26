@@ -124,10 +124,13 @@ if (TARGET === 'start') {
 function NamedModulesPlugin(options) {
   this.options = options || {};
 }
-NamedModulesPlugin.prototype.apply = (compiler) => {
-  compiler.plugin('compilation', (compilation) => {
-    compilation.plugin('before-module-ids', (modules) => {
-      modules.forEach((module) => {
+
+/* eslint prefer-arrow-callback:off */
+/* eslint func-names:off */
+NamedModulesPlugin.prototype.apply = function (compiler) {
+  compiler.plugin('compilation', function (compilation) {
+    compilation.plugin('before-module-ids', function (modules) {
+      modules.forEach(function (module) {
         if (module.id === null && module.libIdent) {
           const id = module.libIdent({
             context: this.options.context || compiler.options.context
@@ -139,8 +142,8 @@ NamedModulesPlugin.prototype.apply = (compiler) => {
           }
         }
       }, this);
-    });
-  }).bind(this);
+    }.bind(this));
+  }.bind(this));
 };
 
 if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
