@@ -3,7 +3,7 @@
 
 # react-inline-loaders - Loaders components for React.js
 
-Mora information <http://natol.es/react-inline-loaders/>
+More information <http://natol.es/react-inline-loaders/>
 
 ## Usage
  
