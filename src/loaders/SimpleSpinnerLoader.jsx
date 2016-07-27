@@ -11,8 +11,8 @@ const style = {
     backgroundColor: '#FF0000',
     position: 'absolute',
     top: '50%',
-    right: '0',
-    bottom: '0',
+    right: 0,
+    bottom: 0,
     left: '50%',
     height: '60px',
     width: '60px',
@@ -21,8 +21,8 @@ const style = {
   loader: {
     position: 'relative',
     top: '14%',
-    right: '0',
-    bottom: '0',
+    right: 0,
+    bottom: 0,
     left: '14%',
     animation: 'x 0.75s infinite',
     animationName: rotateForeverAnimation,
@@ -48,7 +48,7 @@ export default class SimpleSpinnerLoader extends Component {
 
   static defaultProps = {
     color: '#666',
-    backgroundColor: '#FFF'
+    backgroundColor: 'transparent'
   };
 
   render() {
