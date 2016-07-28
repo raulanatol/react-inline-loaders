@@ -6,7 +6,8 @@
     "inline",
     "loaders",
     "react",
-    "reactjs"
+    "reactjs",
+    "radium"
   ],
   "homepage": "https://github.com/raulanatol/react-inline-loaders#readme",
   "bugs": {
