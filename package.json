@@ -114,7 +114,6 @@
     "radium": "^0.18.1"
   },
   "pre-push": [
-    "test",
-    "test:lint"
+    "test"
   ]
 }
