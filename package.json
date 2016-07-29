@@ -33,14 +33,15 @@
     "gh-pages:deploy": "gh-pages -d gh-pages",
     "gh-pages:stats": "webpack --profile --json > stats.json",
     "postinstall": "node --harmony --use_strict lib/post_install.js",
-    "prepublish": "npm run dist:modules",
+    "prepublish": "publish-please guard && npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
     "start": "webpack-dev-server",
     "pretest": "npm run test:lint",
     "test": "karma start",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
     "test:tdd": "npm run test -- --auto-watch --no-single-run",
-    "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\""
+    "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
+    "publish-please": "publish-please"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
@@ -89,6 +90,7 @@
     "mocha-jsdom": "^1.1.0",
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "^2.1.8",
+    "publish-please": "^2.1.4",
     "purecss": "^0.6.0",
     "raw-loader": "^0.5.1",
     "react": "^15.2.1",
