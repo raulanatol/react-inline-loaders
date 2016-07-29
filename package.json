@@ -89,7 +89,7 @@
     "mocha": "^2.5.3",
     "mocha-jsdom": "^1.1.0",
     "phantomjs-polyfill": "0.0.2",
-    "phantomjs-prebuilt": "^2.1.8",
+    "phantomjs-prebuilt": "^2.1.9",
     "publish-please": "^2.1.4",
     "purecss": "^0.6.0",
     "raw-loader": "^0.5.1",
