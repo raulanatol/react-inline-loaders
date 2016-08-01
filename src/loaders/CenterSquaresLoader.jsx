@@ -1,7 +1,6 @@
 import Radium from 'radium';
 import React, { Component, PropTypes } from 'react';
 
-// TODO pending... http://codepen.io/Tbgse/pen/oxbmmL
 const moveInAnimation = Radium.keyframes({
   '33%': { transform: 'translate(0, 0)', opacity: '0.7' },
   '66%': { transform: 'translate(0, 0)', opacity: '0.7' }
@@ -56,7 +55,6 @@ export default class CenterSquaresLoader extends Component {
     const propsStyle = {
       background: this.props.color
     };
-    console.log(propsStyle);
     return (
       <div style={style.container}>
         <div className="square" style={[style.square, propsStyle, style.square1]}/>
