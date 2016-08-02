@@ -61,8 +61,7 @@ export default class SimpleSpinnerLoader extends Component {
     };
     return (
       <div style={[style.container, { backgroundColor: this.props.backgroundColor }]}>
-        <div className="spinner" style={[style.loader, propsStyle]}>
-        </div>
+        <div className="spinner" style={[style.loader, propsStyle]}/>
       </div>
     );
   }

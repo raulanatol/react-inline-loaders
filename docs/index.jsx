@@ -1,4 +1,4 @@
-/* eslint-disable global-require, import/no-unresolved, react/no-multi-comp */
+/* eslint-disable global-require, import/no-unresolved, react/no-multi-comp, import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Fork from 'react-ghfork';
