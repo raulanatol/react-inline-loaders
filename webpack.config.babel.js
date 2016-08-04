@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign, import/no-extraneous-dependencies */
 import * as path from 'path';
-
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';

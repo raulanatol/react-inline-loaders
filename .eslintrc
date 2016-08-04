@@ -25,9 +25,8 @@
         "ignoreComments": false
       }
     ],
-    // not sure why airbnb turned this on. gross!
     "indent": [
-      2,
+      "error",
       2,
       {
         "SwitchCase": 1
