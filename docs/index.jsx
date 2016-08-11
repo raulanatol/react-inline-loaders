@@ -11,10 +11,7 @@ import './main.css';
 
 import { DotWaveLoader, CenterSquaresLoader, SimpleSpinnerLoader } from '../src/index';
 
-// Add your documentation imports here. These are available to
-// React specimen.
 const documentationImports = {
-  React,
   ReactDOM,
   DotWaveLoader,
   CenterSquaresLoader,
@@ -30,14 +27,13 @@ const pages = [
     component: require('catalog/lib/loader!raw!../README.md')
   },
   {
-    path: '/demo',
     title: 'Demo',
-    imports: documentationImports,
-    component: require('catalog/lib/loader!raw!./demo.md')
-  },
-  { path: '/demos/DotWaveLoader', title: 'DotWaveLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/DotWaveLoader.md') },
-  { path: '/demos/CenterSquaresLoader', title: 'CenterSquaresLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/CenterSquaresLoader.md') },
-  { path: '/demos/SimpleSpinnerLoader', title: 'SimpleSpinnerLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/SimpleSpinnerLoader.md') }
+    pages: [
+      { path: '/demos/DotWaveLoader', title: 'DotWaveLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/DotWaveLoader.md') },
+      { path: '/demos/CenterSquaresLoader', title: 'CenterSquaresLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/CenterSquaresLoader.md') },
+      { path: '/demos/SimpleSpinnerLoader', title: 'SimpleSpinnerLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/SimpleSpinnerLoader.md') }
+    ]
+  }
 ];
 
 // Catalog - logoSrc="../images/logo.png"
