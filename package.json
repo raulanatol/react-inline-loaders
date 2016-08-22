@@ -108,7 +108,7 @@
     "sync-exec": "^0.6.2",
     "chai": "^3.5.0",
     "mocha-jsdom": "^1.1.0",
-    "react-addons-test-utils": "^15.3.0"
+    "react-addons-test-utils": "^15.3.1"
   },
   "peerDependencies": {
     "react": "^15.3.0",
