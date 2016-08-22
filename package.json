@@ -62,7 +62,7 @@
     "catalog": "^2.4.6",
     "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
-    "eslint": "3.3.0",
+    "eslint": "3.3.1",
     "eslint-config-airbnb": "10.0.1",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-import": "1.13.0",
