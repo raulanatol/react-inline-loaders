@@ -101,7 +101,7 @@
     "system-bell-webpack-plugin": "^1.0.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.0",
+    "webpack-dev-server": "^1.15.1",
     "webpack-merge": "^0.14.0"
   },
   "dependencies": {
