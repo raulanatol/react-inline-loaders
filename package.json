@@ -61,7 +61,7 @@
     "babel-register": "^6.14.0",
     "catalog": "^2.4.7",
     "clean-webpack-plugin": "^0.1.9",
-    "css-loader": "^0.24.0",
+    "css-loader": "^0.25.0",
     "eslint": "3.4.0",
     "eslint-config-airbnb": "10.0.1",
     "eslint-loader": "^1.5.0",
