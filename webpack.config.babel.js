@@ -2,14 +2,15 @@
 import * as path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import SystemBellPlugin from 'system-bell-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
+
+import { getCommon, getDistCommon, getSiteCommon } from './webpack.config.functions';
 
 const pkg = require('./package.json');
 
 const TARGET = process.env.npm_lifecycle_event;
+
 const ROOT_PATH = __dirname;
 const config = {
   paths: {
@@ -17,7 +18,8 @@ const config = {
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
     docs: path.join(ROOT_PATH, 'docs'),
-    tests: path.join(ROOT_PATH, 'tests')
+    tests: path.join(ROOT_PATH, 'tests'),
+    package: path.join(ROOT_PATH, 'package.json')
   },
   filename: 'index',
   library: 'react-inline-components'
@@ -25,63 +27,8 @@ const config = {
 
 process.env.BABEL_ENV = TARGET;
 
-const common = {
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg']
-  },
-  module: {
-    preLoaders: [
-      {
-        test: /\.js[x]?$/,
-        loaders: ['eslint'],
-        include: [
-          config.paths.docs,
-          config.paths.src
-        ]
-      }
-    ],
-    loaders: [
-      {
-        test: /\.png$/,
-        loader: 'url?limit=100000&mimetype=image/png',
-        include: config.paths.docs
-      },
-      {
-        test: /\.jpg$/,
-        loader: 'file',
-        include: config.paths.docs
-      },
-      {
-        test: /\.json$/,
-        loader: 'json',
-        include: path.join(ROOT_PATH, 'package.json')
-      },
-      { test: /\.js[x]?$/, exclude: /node_modules/, loaders: ['babel-loader'] }
-    ]
-  },
-  plugins: [
-    new SystemBellPlugin()
-  ]
-};
-
-const siteCommon = {
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: require('html-webpack-template'), // eslint-disable-line global-require
-      inject: false,
-      title: pkg.name,
-      appMountId: 'app'
-    }),
-    new webpack.DefinePlugin({
-      NAME: JSON.stringify(pkg.name),
-      USER: JSON.stringify(pkg.user),
-      VERSION: JSON.stringify(pkg.version)
-    })
-  ]
-};
-
 if (TARGET === 'start') {
-  module.exports = merge(common, siteCommon, {
+  module.exports = merge(getCommon(config), getSiteCommon(), {
     devtool: 'eval-source-map',
     entry: {
       docs: [config.paths.docs]
@@ -146,7 +93,7 @@ NamedModulesPlugin.prototype.apply = function (compiler) {
 };
 
 if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
-  module.exports = merge(common, siteCommon, {
+  module.exports = merge(getCommon(config), getSiteCommon(pkg), {
     entry: {
       app: config.paths.docs,
       vendors: [
@@ -198,9 +145,8 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
   });
 }
 
-// !TARGET === prepush hook for test
 if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
-  module.exports = merge(common, {
+  module.exports = merge(getCommon(config), {
     module: {
       preLoaders: [
         {
@@ -225,42 +171,8 @@ if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
   });
 }
 
-const distCommon = {
-  devtool: 'source-map',
-  output: {
-    path: config.paths.dist,
-    libraryTarget: 'umd',
-    library: config.library
-  },
-  entry: config.paths.src,
-  externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'React',
-      root: 'React'
-    }
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js[x]?$/,
-        loaders: ['babel'],
-        include: config.paths.src
-      }
-    ]
-  },
-  resolve: {
-    modulesDirectories: ['node_modules', './src'],
-    extensions: ['', '.js', '.jsx']
-  },
-  plugins: [
-    new SystemBellPlugin()
-  ]
-};
-
 if (TARGET === 'dist') {
-  module.exports = merge(distCommon, {
+  module.exports = merge(getDistCommon(config), {
     output: {
       filename: `${config.filename}.js`
     }
@@ -268,7 +180,7 @@ if (TARGET === 'dist') {
 }
 
 if (TARGET === 'dist:min') {
-  module.exports = merge(distCommon, {
+  module.exports = merge(getDistCommon(config), {
     output: {
       filename: `${config.filename}.min.js`
     },
