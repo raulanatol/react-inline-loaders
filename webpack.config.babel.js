@@ -28,7 +28,7 @@ const config = {
 process.env.BABEL_ENV = TARGET;
 
 if (TARGET === 'start') {
-  module.exports = merge(getCommon(config), getSiteCommon(), {
+  module.exports = merge(getCommon(config), getSiteCommon(pkg), {
     devtool: 'eval-source-map',
     entry: {
       docs: [config.paths.docs]

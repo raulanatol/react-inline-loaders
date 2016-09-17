@@ -9,13 +9,21 @@ import 'react-ghfork/gh-fork-ribbon.ie.css';
 import 'react-ghfork/gh-fork-ribbon.css';
 import './main.css';
 
-import { DotWaveLoader, CenterSquaresLoader, SimpleSpinnerLoader } from '../src/index';
+import {
+  DotWaveLoader,
+  CenterSquaresLoader,
+  SimpleSpinnerLoader,
+  LittleDotLoader,
+  ChasingSquaresLoader
+} from '../src/index';
 
 const documentationImports = {
   ReactDOM,
   DotWaveLoader,
   CenterSquaresLoader,
-  SimpleSpinnerLoader
+  SimpleSpinnerLoader,
+  LittleDotLoader,
+  ChasingSquaresLoader
 };
 const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
 const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
@@ -31,7 +39,9 @@ const pages = [
     pages: [
       { path: '/demos/DotWaveLoader', title: 'DotWaveLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/DotWaveLoader.md') },
       { path: '/demos/CenterSquaresLoader', title: 'CenterSquaresLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/CenterSquaresLoader.md') },
-      { path: '/demos/SimpleSpinnerLoader', title: 'SimpleSpinnerLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/SimpleSpinnerLoader.md') }
+      { path: '/demos/SimpleSpinnerLoader', title: 'SimpleSpinnerLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/SimpleSpinnerLoader.md') },
+      { path: '/demos/LittleDotLoader', title: 'LittleDotLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/LittleDotLoader.md') },
+      { path: '/demos/ChasingSquaresLoader', title: 'ChasingSquaresLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/ChasingSquaresLoader.md') }
     ]
   }
 ];

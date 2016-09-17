@@ -5,9 +5,9 @@
   "keywords": [
     "inline",
     "loaders",
+    "radium",
     "react",
-    "reactjs",
-    "radium"
+    "reactjs"
   ],
   "homepage": "https://github.com/raulanatol/react-inline-loaders#readme",
   "bugs": {
@@ -15,7 +15,6 @@
   },
   "license": "MIT",
   "author": "raulanatol",
-  "user": "raulanatol",
   "main": "dist-modules",
   "directories": {
     "doc": "docs",
@@ -35,13 +34,21 @@
     "postinstall": "node --harmony --use_strict lib/post_install.js",
     "prepublish": "publish-please guard && npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
+    "publish-please": "publish-please",
     "start": "webpack-dev-server",
     "pretest": "npm run test:lint",
     "test": "karma start",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
     "test:tdd": "npm run test -- --auto-watch --no-single-run",
-    "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
-    "publish-please": "publish-please"
+    "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\""
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "chai-colors": "^1.0.1",
+    "mocha-jsdom": "^1.1.0",
+    "onecolor": "^3.0.4",
+    "react-addons-test-utils": "^15.3.1",
+    "sync-exec": "^0.6.2"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
@@ -104,18 +111,13 @@
     "webpack-dev-server": "^1.15.1",
     "webpack-merge": "^0.14.0"
   },
-  "dependencies": {
-    "sync-exec": "^0.6.2",
-    "chai": "^3.5.0",
-    "mocha-jsdom": "^1.1.0",
-    "react-addons-test-utils": "^15.3.1"
-  },
   "peerDependencies": {
+    "radium": "^0.18.1",
     "react": "^15.3.0",
-    "react-dom": "^0.14.8 || ^15.3.0",
-    "radium": "^0.18.1"
+    "react-dom": "^0.14.8 || ^15.3.0"
   },
   "pre-push": [
     "test"
-  ]
+  ],
+  "user": "raulanatol"
 }
