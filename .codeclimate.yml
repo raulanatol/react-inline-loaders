@@ -15,6 +15,5 @@ ratings:
   - "**.css"
   - "**.js"
   - "**.jsx"
-  - "**.module"
 exclude_paths:
-  tests/
+- tests/
