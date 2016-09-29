@@ -65,7 +65,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
-    "babel-register": "^6.14.0",
+    "babel-register": "^6.16.3",
     "catalog": "^2.4.7",
     "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.25.0",
