@@ -1,20 +1,8 @@
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import Radium, { StyleRoot } from 'radium';
 import { assert } from 'chai';
 
 const color = require('onecolor');
 
-/* eslint-disable new-cap, import/prefer-extraneous-dependencies, import/prefer-default-export */
-export function renderRadiumComponentWithStyleRoot(component) {
-  const ComponentToRender = Radium(() =>
-    <StyleRoot>
-      {component}
-    </StyleRoot>
-  );
-  return TestUtils.renderIntoDocument(<ComponentToRender />);
-}
-
+/* eslint-disable import/prefer-default-export */
 export function colorEquals(actual, expected) {
   const actualColor = color(actual);
   const expectedColor = color(expected);

@@ -16,6 +16,14 @@
     "import/namespace": 0,
     "import/no-unresolved": 0,
     "import/no-named-as-default": 2,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.js*"
+        ]
+      }
+    ],
     "comma-dangle": 0,
     "max-len": [
       2,

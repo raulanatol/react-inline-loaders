@@ -20,10 +20,9 @@ export default class SimpleSpinnerLoader extends Component {
     // style.container.
     const propsStyle = {
       background: this.props.backgroundColor,
-      borderLeft: `8px solid ${this.props.color}`,
-      borderRight: '8px solid transparent',
-      borderBottom: `8px solid ${this.props.color}`,
-      borderTop: `8px solid ${this.props.color}`,
+      borderLeftColor: this.props.color,
+      borderBottomColor: this.props.color,
+      borderTopColor: this.props.color
     };
     console.log(JSON.stringify(style));
     return (
