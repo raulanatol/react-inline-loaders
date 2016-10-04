@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "author": "raulanatol",
-  "main": "dist-modules",
+  "main": "dist",
   "directories": {
     "doc": "docs",
     "test": "tests"
@@ -25,8 +25,8 @@
     "url": "git+https://github.com/raulanatol/react-inline-loaders.git"
   },
   "scripts": {
-    "dist": "webpack",
-    "dist:min": "webpack",
+    "dist": "webpack --config=./webpack/webpack.dist.babel.js",
+    "dist:min": "webpack --config=./webpack/webpack.dist.babel.js",
     "dist:modules": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
     "gh-pages": "webpack",
     "gh-pages:deploy": "gh-pages -d gh-pages",

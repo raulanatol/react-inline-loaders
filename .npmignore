@@ -6,5 +6,8 @@ src/
 docs
 karma.conf.js
 webpack.config.babel.js
+webpack.config.functions.js
+webpack
+gh-pages
 
 
