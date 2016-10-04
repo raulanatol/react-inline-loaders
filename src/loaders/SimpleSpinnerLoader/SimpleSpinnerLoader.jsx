@@ -24,7 +24,6 @@ export default class SimpleSpinnerLoader extends Component {
       borderBottomColor: this.props.color,
       borderTopColor: this.props.color
     };
-    console.log(JSON.stringify(style));
     return (
       <div styleName="container" style={{ backgroundColor: this.props.backgroundColor }}>
         <div styleName="spinner" style={propsStyle}/>
