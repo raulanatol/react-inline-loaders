@@ -12,22 +12,6 @@ More information <http://natol.es/react-inline-loaders/>
 npm install --save react-inline-loaders
 ```
 
-### Create a StyleRoot Component
-
-```js
-import {StyleRoot} from 'radium';
-
-class App extends React.Component {
-  render() {
-    return (
-      <StyleRoot>
-        ... rest of your app ...
-      </StyleRoot>
-    );
-  }
-}  
-```
-
 ### Include a react-inline-loader
 
 ```js

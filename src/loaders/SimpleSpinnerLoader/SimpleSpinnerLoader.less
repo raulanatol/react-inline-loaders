@@ -1,0 +1,38 @@
+@keyframes rotateForeverAnimation {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.container {
+  background-color: #FF0000;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  height: 60px;
+  width: 60px;
+  margin: -30px 0 -30px;
+}
+
+.spinner {
+  position: relative;
+  top: 14%;
+  right: 0;
+  bottom: 0;
+  left: 14%;
+  animation: rotateForeverAnimation 0.75s infinite;
+  animation-timing-function: linear;
+  height: 30px;
+  width: 30px;
+  border-left: 8px solid #ffffff;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ffffff;
+  border-top: 8px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block
+}

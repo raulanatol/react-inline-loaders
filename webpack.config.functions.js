@@ -1,7 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import SystemBellPlugin from 'system-bell-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
+
+const autoprefixer = require('autoprefixer');
 
 export function getCommon(config) {
   return {
@@ -20,6 +23,7 @@ export function getCommon(config) {
         }
       ],
       loaders: [
+        { test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!postcss!less?outputStyle=expanded&sourceMap=true&sourceMapContents=true') },
         {
           test: /\.png$/,
           loader: 'url?limit=100000&mimetype=image/png',
@@ -38,7 +42,9 @@ export function getCommon(config) {
         { test: /\.js[x]?$/, exclude: /node_modules/, loaders: ['babel-loader'] }
       ]
     },
+    postcss: () => [autoprefixer({ browsers: ['last 2 versions'] })],
     plugins: [
+      new ExtractTextPlugin('[name].[chunkhash].css'),
       new SystemBellPlugin()
     ]
   };
@@ -67,15 +73,18 @@ export function getDistCommon(config) {
           test: /\.js[x]?$/,
           loaders: ['babel'],
           include: config.paths.src
-        }
+        },
+        { test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!postcss!less?outputStyle=expanded&sourceMap=true&sourceMapContents=true') },
       ]
     },
+    postcss: () => [autoprefixer({ browsers: ['last 2 versions'] })],
     resolve: {
       modulesDirectories: ['node_modules', './src'],
       extensions: ['', '.js', '.jsx']
     },
     plugins: [
-      new SystemBellPlugin()
+      new SystemBellPlugin(),
+      new ExtractTextPlugin('[name].[chunkhash].css'),
     ]
   };
 }

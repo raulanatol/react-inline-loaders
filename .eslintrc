@@ -26,6 +26,12 @@
         "ignoreComments": false
       }
     ],
+    "new-cap": [
+      1,
+      {
+        "capIsNew": false
+      }
+    ],
     "indent": [
       "error",
       2,
