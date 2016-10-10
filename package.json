@@ -68,7 +68,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.16.3",
     "catalog": "^2.4.7",
-    "clean-webpack-plugin": "^0.1.11",
+    "clean-webpack-plugin": "^0.1.13",
     "css-loader": "^0.25.0",
     "enzyme": "^2.4.1",
     "eslint": "^3.7.0",
