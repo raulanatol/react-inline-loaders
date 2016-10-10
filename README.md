@@ -24,6 +24,9 @@ npm install --save react-inline-loaders
 @import "~react-inline-loaders/dist/app.css";
 ```
 
+### Example app
+
+https://github.com/raulanatol/react-inline-loaders-example-app
 
 ## License
 
