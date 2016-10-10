@@ -18,6 +18,13 @@ npm install --save react-inline-loaders
 <DotWaveLoader/>
 ```
 
+### Import the css
+
+```
+@import "~react-inline-loaders/dist/app.css";
+```
+
+
 ## License
 
 Adaptations from:

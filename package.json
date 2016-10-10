@@ -27,12 +27,11 @@
   "scripts": {
     "dist": "webpack --config=./webpack/webpack.dist.babel.js",
     "dist:min": "webpack --config=./webpack/webpack.dist.babel.js",
-    "dist:modules": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
     "gh-pages": "webpack",
     "gh-pages:deploy": "gh-pages -d gh-pages",
     "gh-pages:stats": "webpack --profile --json > stats.json",
     "postinstall": "node --harmony --use_strict lib/post_install.js",
-    "prepublish": "publish-please guard && npm run dist:modules",
+    "prepublish": "publish-please guard && npm run dist:min",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
     "publish-please": "publish-please",
     "start": "webpack-dev-server",

@@ -1,6 +1,8 @@
 # Table of components
 
-- [DotWaveLoader](demos/DotWaveLoader)
 - [CenterSquaresLoader](demos/CenterSquaresLoader)
-- [SimpleSpinnerLoader](demos/SimpleSpinnerLoader)
+- [ChasingSquaresLoader](demos/ChasingSquaresLoader)
+- [DotLineLoader](demos/DotLineLoader)
+- [DotWaveLoader](demos/DotWaveLoader)
 - [LittleDotLoader](demos/LittleDotLoader)
+- [SimpleSpinnerLoader](demos/SimpleSpinnerLoader)
