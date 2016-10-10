@@ -96,7 +96,7 @@
     "karma-webpack": "1.8.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
-    "mocha": "3.1.0",
+    "mocha": "3.1.1",
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "2.1.12",
     "postcss-loader": "^0.13.0",
