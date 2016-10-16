@@ -15,7 +15,8 @@ import {
   SimpleSpinnerLoader,
   LittleDotLoader,
   ChasingSquaresLoader,
-  DotLineLoader
+  DotLineLoader,
+  RotateCirclesLoader
 } from '../src/index';
 
 const documentationImports = {
@@ -25,7 +26,8 @@ const documentationImports = {
   SimpleSpinnerLoader,
   LittleDotLoader,
   ChasingSquaresLoader,
-  DotLineLoader
+  DotLineLoader,
+  RotateCirclesLoader
 };
 const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
 const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
@@ -44,7 +46,8 @@ const pages = [
       { path: '/demos/SimpleSpinnerLoader', title: 'SimpleSpinnerLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/SimpleSpinnerLoader.md') },
       { path: '/demos/LittleDotLoader', title: 'LittleDotLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/LittleDotLoader.md') },
       { path: '/demos/ChasingSquaresLoader', title: 'ChasingSquaresLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/ChasingSquaresLoader.md') },
-      { path: '/demos/DotLineLoader', title: 'DotLineLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/DotLineLoader.md') }
+      { path: '/demos/DotLineLoader', title: 'DotLineLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/DotLineLoader.md') },
+      { path: '/demos/RotateCirclesLoader', title: 'RotateCirclesLoader', imports: documentationImports, component: require('catalog/lib/loader!raw!./demos/RotateCirclesLoader.md') }
     ]
   }
 ];

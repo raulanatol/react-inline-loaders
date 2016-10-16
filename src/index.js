@@ -4,3 +4,4 @@ export SimpleSpinnerLoader from './loaders/SimpleSpinnerLoader/SimpleSpinnerLoad
 export LittleDotLoader from './loaders/LittleDotLoader/LittleDotLoader';
 export ChasingSquaresLoader from './loaders/ChasingSquaresLoader/ChasingSquaresLoader';
 export DotLineLoader from './loaders/DotLineLoader/DotLineLoader';
+export RotateCirclesLoader from './loaders/RotateCirclesLoader/RotateCirclesLoader';

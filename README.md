@@ -32,6 +32,7 @@ https://github.com/raulanatol/react-inline-loaders-example-app
 
 Adaptations from:
  - http://codepen.io/Tbgse/pen/oxbmmL
+ - https://boguz.github.io/Spinners
 
 *react-inline-loaders* is available under MIT. See LICENSE for more details.
 
