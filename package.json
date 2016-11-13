@@ -46,7 +46,7 @@
     "chai-colors": "^1.0.1",
     "mocha-jsdom": "^1.1.0",
     "onecolor": "^3.0.4",
-    "react-css-modules": "^3.7.10",
+    "react-css-modules": "^4.0.3",
     "sync-exec": "^0.6.2"
   },
   "devDependencies": {
