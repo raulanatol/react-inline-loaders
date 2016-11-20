@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import SystemBellPlugin from 'system-bell-webpack-plugin';
+import webpack from 'webpack';
 
 module.exports = {
   resolve: {
@@ -22,6 +23,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new SystemBellPlugin()
+    new SystemBellPlugin(),
+    new webpack.IgnorePlugin(/react\/addons/),
+    new webpack.IgnorePlugin(/react\/lib\/ReactContext/),
+    new webpack.IgnorePlugin(/react\/lib\/ExecutionEnvironment/)
   ]
 };
