@@ -98,7 +98,7 @@
     "less-loader": "^2.2.3",
     "mocha": "3.1.2",
     "phantomjs-polyfill": "0.0.2",
-    "phantomjs-prebuilt": "2.1.13",
+    "phantomjs-prebuilt": "2.1.14",
     "postcss-loader": "^1.1.1",
     "publish-please": "^2.2.0",
     "purecss": "^0.6.0",
