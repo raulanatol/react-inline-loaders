@@ -101,7 +101,7 @@
     "phantomjs-prebuilt": "2.1.14",
     "postcss-loader": "^1.2.0",
     "publish-please": "^2.2.0",
-    "purecss": "^0.6.0",
+    "purecss": "^0.6.1",
     "raw-loader": "^0.5.1",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
