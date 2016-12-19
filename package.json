@@ -81,7 +81,7 @@
     "gh-pages": "^0.12.0",
     "git-prepush-hook": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
-    "html-webpack-template": "^5.5.0",
+    "html-webpack-template": "^5.5.1",
     "isparta-loader": "2.0.0",
     "jsdom": "9.8.3",
     "json-loader": "^0.5.4",
