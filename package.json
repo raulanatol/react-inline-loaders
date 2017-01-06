@@ -118,7 +118,7 @@
     "webpack-merge": "^1.1.0"
   },
   "peerDependencies": {
-    "react": "^15.4.1",
+    "react": "^15.4.2",
     "react-dom": "^15.4.1"
   },
   "pre-push": [
