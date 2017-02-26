@@ -4,7 +4,7 @@ import webpack from 'webpack';
 
 module.exports = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['.js', '.jsx', '.css']
   },
   externals: {
     jsdom: 'window',
@@ -13,10 +13,8 @@ module.exports = {
     'react/lib/ReactContext': 'window'
   },
   module: {
-    preLoaders: [
-      { test: /\.js[x]?$/, loaders: ['isparta', 'eslint'], include: ['../test'] },
-    ],
     loaders: [
+      { test: /\.js[x]?$/, loaders: ['isparta', 'eslint'], include: ['../test'], enforce: 'pre' },
       { test: /\.less$/, loaders: ['style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]', 'postcss-loader'] },
       { test: /\.js[x]?$/, exclude: /node_modules/, loaders: ['babel-loader'] },
       { test: /\.json$/, loader: 'json-loader' }

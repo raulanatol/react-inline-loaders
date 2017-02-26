@@ -1,17 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import SystemBellPlugin from 'system-bell-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
-import * as path from 'path';
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import { join } from 'path';
 
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-
-const ROOT_PATH = path.join(__dirname, '..');
+const ROOT_PATH = join(__dirname, '..');
 
 module.exports = {
   entry: ['./src/index'],
-  devtool: 'source-map',
   output: {
     path: './dist',
     filename: 'index.js',
@@ -29,26 +26,30 @@ module.exports = {
   },
 
   resolve: {
-    modulesDirectories: ['node_modules', './src'],
-    extensions: ['', '.js', '.jsx']
+    modules: [
+      'node_modules',
+      join(__dirname, 'src')
+    ],
+    extensions: ['.js', '.jsx', '.less']
   },
 
   module: {
     loaders: [
-      { test: /\.js[x]?$/, exclude: /node_modules/, loaders: ['babel-loader'] },
-      { test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!postcss!less?outputStyle=expanded&sourceMap=true&sourceMapContents=true') },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]') }
+      { test: /\.css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: [{ loader: 'css-loader', options: { modules: true } }] }) },
+      { test: /\.less$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader?modules&importLoaders=2&sourceMap', 'postcss-loader', 'less-loader?outputStyle=expanded'] }) },
+      { test: /\.js[x]?$/, exclude: /node_modules/, loaders: ['babel-loader'] }
     ]
   },
-  postcss: () => [autoprefixer({ browsers: ['last 2 versions'] })],
   plugins: [
+    new ExtractTextPlugin({
+      filename: 'app.css',
+      disable: false,
+      allChunks: true
+    }),
     new SystemBellPlugin(),
     new CleanWebpackPlugin(['dist'], {
       verbose: true,
       root: ROOT_PATH
-    }),
-    new ExtractTextPlugin('app.css', {
-      allChunks: true
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"'
@@ -57,7 +58,6 @@ module.exports = {
       compress: {
         warnings: false
       }
-    }),
-    new webpack.optimize.DedupePlugin()
+    })
   ]
 };

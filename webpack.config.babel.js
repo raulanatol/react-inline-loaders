@@ -39,27 +39,10 @@ if (TARGET === 'start') {
       }),
       new webpack.HotModuleReplacementPlugin()
     ],
-    module: {
-      loaders: [
-        {
-          test: /\.css$/,
-          loaders: ['style', 'css']
-        },
-        {
-          test: /\.jsx?$/,
-          loaders: ['babel?cacheDirectory'],
-          include: [
-            config.paths.docs,
-            config.paths.src
-          ]
-        }
-      ]
-    },
     devServer: {
       historyApiFallback: true,
       hot: true,
       inline: true,
-      progress: true,
       host: process.env.HOST,
       port: process.env.PORT,
       stats: 'errors-only'
@@ -93,74 +76,62 @@ NamedModulesPlugin.prototype.apply = function (compiler) {
 };
 
 if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
-  module.exports = merge(getCommon(config), getSiteCommon(pkg), {
-    entry: {
-      app: config.paths.docs,
-      vendors: [
-        'react',
-        'react-dom'
-      ]
-    },
-    output: {
-      path: './gh-pages',
-      filename: '[name].[chunkhash].js',
-      chunkFilename: '[chunkhash].js'
-    },
-    plugins: [
-      new CleanWebpackPlugin(['gh-pages'], {
-        verbose: false
-      }),
-      new ExtractTextPlugin('[name].[chunkhash].css'),
-      new webpack.DefinePlugin({
-        // This affects the react lib size
-        'process.env.NODE_ENV': '"production"'
-      }),
-      new NamedModulesPlugin(),
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        names: ['vendors', 'manifest']
-      })
-    ],
-    module: {
-      loaders: [
-        {
-          test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style', 'css')
-        },
-        {
-          test: /\.js[x]?$/,
-          loaders: ['babel'],
-          include: [
-            config.paths.docs,
-            config.paths.src
-          ]
-        }
+  module.exports = merge(getCommon(), getSiteCommon(pkg),
+    {
+      entry: {
+        app: config.paths.docs,
+        vendors: [
+          'react',
+          'react-dom'
+        ]
+      },
+      output: {
+        path: './gh-pages',
+        filename: '[name].[chunkhash].js',
+        chunkFilename: '[chunkhash].js'
+      },
+      plugins: [
+        new CleanWebpackPlugin(['gh-pages'], {
+          verbose: false
+        }),
+        new ExtractTextPlugin({
+          filename: '[name].[chunkhash].css',
+          disable: false,
+          allChunks: true
+        }),
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': '"production"'
+        }),
+        new NamedModulesPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+          names: ['vendors', 'manifest']
+        })
       ]
     }
-  });
+  );
 }
 
 if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
   module.exports = merge(getCommon(config), {
     module: {
-      preLoaders: [
-        {
-          test: /\.js[x]?$/,
-          loaders: ['isparta', 'eslint'],
-          include: [
-            config.paths.tests
-          ]
-        }
-      ],
       loaders: [
         {
           test: /\.js[x]?$/,
-          loaders: ['babel?cacheDirectory'],
+          loaders: ['isparta', 'eslint'],
+          exclude: /node_modules/,
+          enforce: 'pre',
+          include: [
+            config.paths.tests
+          ]
+        },
+        {
+          test: /\.js[x]?$/,
+          loaders: ['babel-loader?cacheDirectory'],
           include: [
             config.paths.src,
             config.paths.tests
