@@ -70,7 +70,7 @@
     "clean-webpack-plugin": "^0.1.14",
     "css-loader": "^0.26.2",
     "enzyme": "^2.6.0",
-    "eslint": "^3.16.1",
+    "eslint": "^3.17.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.6.3",
     "eslint-plugin-import": "^2.2.0",
