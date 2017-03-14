@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { assert } from 'chai';
 
 const color = require('onecolor');
