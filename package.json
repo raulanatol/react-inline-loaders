@@ -62,7 +62,7 @@
     "chai": "^3.5.0",
     "clean-webpack-plugin": "^0.1.14",
     "css-loader": "^0.27.3",
-    "enzyme": "^2.6.0",
+    "enzyme": "^2.8.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.6.3",
