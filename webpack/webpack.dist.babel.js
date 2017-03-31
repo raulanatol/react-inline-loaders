@@ -3,14 +3,14 @@ import SystemBellPlugin from 'system-bell-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import { join } from 'path';
+import { join, resolve } from 'path';
 
 const ROOT_PATH = join(__dirname, '..');
 
 module.exports = {
   entry: ['./src/index'],
   output: {
-    path: './dist',
+    path: resolve(__dirname, './dist'),
     filename: 'index.js',
     libraryTarget: 'umd',
     library: 'react-inline-components'
