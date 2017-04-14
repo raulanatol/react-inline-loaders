@@ -110,7 +110,7 @@
     "sync-exec": "^0.6.2",
     "system-bell-webpack-plugin": "^1.0.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.3.2",
+    "webpack": "^2.4.0",
     "webpack-dev-server": "^2.4.2",
     "webpack-merge": "^4.1.0"
   },
