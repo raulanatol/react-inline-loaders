@@ -88,7 +88,7 @@
     "karma-spec-reporter": "0.0.30",
     "karma-webpack": "^2.0.3",
     "less": "^2.7.1",
-    "less-loader": "^4.0.2",
+    "less-loader": "^4.0.3",
     "mocha": "3.2.0",
     "mocha-jsdom": "^1.1.0",
     "onecolor": "^3.0.4",
