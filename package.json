@@ -59,7 +59,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.24.0",
     "catalog": "^2.5.3",
-    "chai": "^3.5.0",
+    "chai": "^4.0.0",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.0",
     "enzyme": "^2.8.0",
