@@ -86,7 +86,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
         ]
       },
       output: {
-        path: './gh-pages',
+        path: path.join(ROOT_PATH, 'gh-pages'),
         filename: '[name].[chunkhash].js',
         chunkFilename: '[chunkhash].js'
       },
