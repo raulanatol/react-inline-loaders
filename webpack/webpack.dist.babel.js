@@ -10,7 +10,7 @@ const ROOT_PATH = join(__dirname, '..');
 module.exports = {
   entry: ['./src/index'],
   output: {
-    path: resolve(__dirname, './dist'),
+    path: resolve(ROOT_PATH, './dist'),
     filename: 'index.js',
     libraryTarget: 'umd',
     library: 'react-inline-components'
