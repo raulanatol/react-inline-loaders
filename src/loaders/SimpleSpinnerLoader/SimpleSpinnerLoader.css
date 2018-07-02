@@ -29,10 +29,8 @@
   animation-timing-function: linear;
   height: 30px;
   width: 30px;
-  border-left: 8px solid #ffffff;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid #ffffff;
-  border-top: 8px solid #ffffff;
+  border: 8px solid #ffffff;
+  border-right-color: transparent;
   border-radius: 50%;
   display: inline-block
 }

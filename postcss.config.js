@@ -1,6 +1,11 @@
-/* eslint-disable global-require, import/no-extraneous-dependencies */
 module.exports = {
-  plugins: [
-    require('autoprefixer')({ browsers: ['last 2 versions'] })
-  ]
+  modules: true,
+  plugins: {
+    autoprefixer: {
+      grid: true
+    },
+    'postcss-modules': {
+      generateScopedName: '[hash:base64:12]'
+    }
+  }
 };
