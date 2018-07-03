@@ -15,7 +15,7 @@ fi
 
 npm run lint
 npm run test
-npm run build
+npm run dist
 
 NEW_VERSION=$1
 BRANCH=`git rev-parse --abbrev-ref HEAD`
