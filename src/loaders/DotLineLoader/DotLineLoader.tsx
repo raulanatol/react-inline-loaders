@@ -1,5 +1,5 @@
-import styles from './DotLineLoader.css';
 import * as React from 'react';
+import * as styles from './DotLineLoader.css';
 
 export interface DotLineLoaderProps {
   color?: string;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from './SimpleSpinnerLoader.css';
+import * as styles from './SimpleSpinnerLoader.css';
 
 export interface SimpleSpinnerLoaderProps {
   color?: string;
