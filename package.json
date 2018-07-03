@@ -116,8 +116,7 @@
   },
   "pre-push": [
     "lint",
-    "test",
-    "build"
+    "test"
   ],
   "user": "raulanatol"
 }
