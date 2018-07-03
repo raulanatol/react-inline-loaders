@@ -25,8 +25,10 @@
     "url": "git+https://github.com/raulanatol/react-inline-loaders.git"
   },
   "scripts": {
-    "dist": "rm -Rf .cache dist && parcel build src/index.ts",
-    "start": "parcel index.html",
+    "build-storybook": "build-storybook",
+    "dev": "webpack-dev-server --config config/dev/webpack.config.js --mode development",
+    "dist": "rm -rf dist && webpack",
+    "storybook": "start-storybook -p 6006",
     "test": "jest"
   },
   "dependencies": {
@@ -35,35 +37,58 @@
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^4.0.0-alpha.1",
+    "@storybook/addon-info": "^3.4.8",
+    "@storybook/addon-knobs": "^3.4.8",
+    "@storybook/addon-links": "^4.0.0-alpha.1",
+    "@storybook/addon-notes": "^3.4.8",
+    "@storybook/addon-options": "^3.4.8",
+    "@storybook/addons": "^4.0.0-alpha.1",
+    "@storybook/react": "^4.0.0-alpha.1",
+    "@storybook/storybook-deployer": "^2.3.0",
     "@types/enzyme": "^3.1.11",
     "@types/jest": "^23.1.4",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "autoprefixer": "^8.6.4",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
     "cssnano": "^3.10.0",
+    "dts-bundle": "^0.7.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.2.0",
+    "jest-cli": "^22.4.3",
     "jest-css-modules": "^1.1.0",
     "onecolor": "^3.0.5",
     "parcel-bundler": "^1.9.4",
     "postcss": ">=6 <7",
+    "postcss-browser-reporter": "^0.5.0",
     "postcss-camel-case": "^1.0.1",
+    "postcss-cssnext": "^3.1.0",
     "postcss-font-magician": "^2.2.1",
     "postcss-for": "^2.1.1",
     "postcss-import": "^11.1.0",
     "postcss-import-url": "^3.0.4",
+    "postcss-loader": "^2.1.5",
     "postcss-modules": "^1.1.0",
     "postcss-preset-env": "^5.2.1",
+    "postcss-reporter": "^5.0.0",
+    "postcss-url": "^7.3.0",
+    "pre-push": "^0.1.1",
+    "prettier": "^1.12.1",
+    "shx": "^0.2.2",
+    "style-loader": "^0.20.3",
+    "ts-jest": "^22.4.5",
+    "ts-loader": "^4.4.2",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^2.9.2"
+    "typescript": "^2.9.2",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
   },
-  "pre-push": [
-    "test"
-  ],
-  "user": "raulanatol",
   "jest": {
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/config/jest/preprocessor.js"
@@ -84,5 +109,9 @@
     "setupFiles": [
       "<rootDir>/config/jest/setup.js"
     ]
-  }
+  },
+  "pre-push": [
+    "test"
+  ],
+  "user": "raulanatol"
 }
