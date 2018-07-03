@@ -30,6 +30,7 @@
     "dist": "rm -rf dist && webpack",
     "storybook": "start-storybook -p 6006",
     "test": "jest",
+    "lint": "tslint -p ./tsconfig.json",
     "postpublish": "yarn run build-storybook && gh-pages -d gh-pages"
   },
   "dependencies": {
@@ -114,7 +115,9 @@
     ]
   },
   "pre-push": [
-    "test"
+    "lint",
+    "test",
+    "build"
   ],
   "user": "raulanatol"
 }

@@ -15,7 +15,6 @@ fi
 
 npm run lint
 npm run test
-npm run clean
 npm run build
 
 NEW_VERSION=$1
