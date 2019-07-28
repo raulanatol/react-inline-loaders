@@ -50,7 +50,7 @@ const Square4 = styled.div`
   transform: translate(0, 25px);
 `;
 
-export interface CenterSquaresLoaderProps {
+interface CenterSquaresLoaderProps {
   color?: string;
 }
 

@@ -28,7 +28,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     libraryTarget: 'umd',
-    path: __dirname + '/dist'
+    path: '/dist'
   },
   plugins: [
     new DtsBundlePlugin()
