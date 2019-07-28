@@ -1,10 +1,9 @@
 import * as React from 'react';
 
+import { LittleDotLoader } from '../../src';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
-import { withInfo } from '@storybook/addon-info';
-import { CenterSquaresLoader, ChasingSquaresLoader, DotLineLoader, DotWaveLoader, LittleDotLoader } from '../../src';
 
 storiesOf('LittleDotLoader', module)
-  .add('default props', () => <LittleDotLoader/>);
+  .add('default props', () => <LittleDotLoader/>)
+  .add('red color', () => <LittleDotLoader color="#FF0000"/>)
+;

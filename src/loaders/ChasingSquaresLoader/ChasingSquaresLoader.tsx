@@ -1,27 +1,74 @@
 import * as React from 'react';
+import { keyframes } from '@emotion/core';
+import styled from '@emotion/styled';
 
-import * as styles from './ChasingSquaresLoader.css';
+const animation = keyframes`
+  0% {
+    opacity: 0.5
+  }
+  30% {
+    opacity: 0.5
+  }
+  60% {
+    opacity: 0
+  }
+  75% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0.5
+  }
+`;
+
+const Container = styled.div`
+  width: 50px;
+  line-height: 10px;
+  height: 50px;
+  
+  & > div {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    background: ${props => props.theme.background};
+    margin: 3px;
+    animation: ${animation} 2.8s infinite;
+  }
+`;
+
+const Square1 = styled.div`
+  opacity: 0.5;
+`;
+
+const Square2 = styled.div`
+  opacity: 0.5;
+  animation-delay: .7s;
+`;
+
+const Square3 = styled.div`
+  opacity: 0.5;
+  animation-delay: 2.1s;
+`;
+
+const Square4 = styled.div`
+  opacity: 0.5;
+  animation-delay: 1.4s;
+`;
 
 export interface ChasingSquaresLoaderProps {
   color?: string;
 }
 
-export class ChasingSquaresLoader extends React.Component<ChasingSquaresLoaderProps> {
-  static defaultProps: Partial<ChasingSquaresLoaderProps> = {
-    color: '#666'
+export const ChasingSquaresLoader = (props: ChasingSquaresLoaderProps) => {
+
+  const theme = {
+    background: props.color || '#666'
   };
 
-  render() {
-    const propsStyle = {
-      background: this.props.color
-    };
-    return (
-      <div className={styles.container}>
-        <div className={styles.square} style={propsStyle}/>
-        <div className={styles.square2} style={propsStyle}/>
-        <div className={styles.square3} style={propsStyle}/>
-        <div className={styles.square4} style={propsStyle}/>
-      </div>
-    );
-  }
-}
+  return <Container theme={theme}>
+    <Square1/>
+    <Square2/>
+    <Square3/>
+    <Square4/>
+  </Container>;
+};

@@ -5,15 +5,24 @@
     "target": "es6",
     "jsx": "react",
     "outDir": "lib",
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "suppressImplicitAnyIndexErrors": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": false,
     "declaration": true,
-    "declarationDir": "../.dts",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "declarationDir": ".dts",
     "experimentalDecorators": true,
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "rootDirs": [
+      "src",
+      "stories"
     ]
   },
   "include": [

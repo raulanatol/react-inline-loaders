@@ -1,30 +1,62 @@
-import * as React from 'react';
-import * as styles from './DotLineLoader.css';
+import React, { memo } from 'react';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/core';
+
+const animation = keyframes`
+  40% {
+    transform: translateX(0px);
+    opacity: 0.8
+  }
+  100% {
+    transform: translateX(300px);
+    opacity: 0
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 45%;
+  margin: 5%;
+  position: relative;
+  
+  & > div {
+    display: inline-block;
+    background: ${props => props.theme.background};
+    height: 5px;
+    width: 5px;
+    opacity: 0;
+    border-radius: 50%;
+    transform: translateX(-300px);
+    margin: 0 2px 0 2px;
+  }
+`;
+
+const Dot = styled.div`
+  animation: ${animation} 4s infinite;
+  animation-delay: ${props => props.theme.delay};
+`;
 
 export interface DotLineLoaderProps {
   color?: string;
 }
 
-export class DotLineLoader extends React.Component<DotLineLoaderProps> {
-  static defaultProps: Partial<DotLineLoaderProps> = {
-    color: '#666'
+export const DotLineLoader = memo((props: DotLineLoaderProps) => {
+  const theme = {
+    background: props.color || '#666'
   };
 
-  render() {
-    const propsStyle = {
-      background: this.props.color
-    };
-    return (
-      <div className={styles.loader}>
-        <div className={styles.dot1} style={propsStyle}/>
-        <div className={styles.dot2} style={propsStyle}/>
-        <div className={styles.dot3} style={propsStyle}/>
-        <div className={styles.dot4} style={propsStyle}/>
-        <div className={styles.dot5} style={propsStyle}/>
-        <div className={styles.dot6} style={propsStyle}/>
-        <div className={styles.dot7} style={propsStyle}/>
-        <div className={styles.dot8} style={propsStyle}/>
-      </div>
-    );
-  }
-}
+  return <Container theme={theme}>
+    <Dot theme={{ delay: '.8s' }}/>
+    <Dot theme={{ delay: '.7s' }}/>
+    <Dot theme={{ delay: '.6s' }}/>
+    <Dot theme={{ delay: '.5s' }}/>
+    <Dot theme={{ delay: '.4s' }}/>
+    <Dot theme={{ delay: '.3s' }}/>
+    <Dot theme={{ delay: '.2s' }}/>
+    <Dot theme={{ delay: '.1s' }}/>
+  </Container>;
+});
+

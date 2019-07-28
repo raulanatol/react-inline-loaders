@@ -1,27 +1,69 @@
-import * as React from 'react';
+import React, { memo } from 'react';
 
-import * as styles from './CenterSquaresLoader.css';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/core';
+
+const animation = keyframes`
+  33% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+`;
+
+const Container = styled.div`
+  width: 50px;
+  line-height: 10px;
+  height: 50px;
+  
+  & > div {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    opacity: 0.2;
+    background: ${props => props.theme.background};
+    margin: 3px;
+    animation: ${animation} 2s infinite;
+  }
+`;
+
+const Square1 = styled.div`
+  opacity: 0.5;
+  transform: translate(0, -25px);
+`;
+
+const Square2 = styled.div`
+  opacity: 0.5;
+  transform: translate(25px, 0);
+`;
+
+const Square3 = styled.div`
+  opacity: 0.5;
+  transform: translate(-25px, 0);
+`;
+
+const Square4 = styled.div`
+  opacity: 0.5;
+  transform: translate(0, 25px);
+`;
 
 export interface CenterSquaresLoaderProps {
   color?: string;
 }
 
-export class CenterSquaresLoader extends React.Component<CenterSquaresLoaderProps> {
-  static defaultProps: Partial<CenterSquaresLoaderProps> = {
-    color: '#666'
+export const CenterSquaresLoader = memo((props: CenterSquaresLoaderProps) => {
+  const theme = {
+    background: props.color || '#666'
   };
 
-  render() {
-    const propsStyle = {
-      background: this.props.color
-    };
-
-    return <div className={styles.container}>
-      <div className={styles.square1} style={propsStyle}/>
-      <div className={styles.square2} style={propsStyle}/>
-      <div className={styles.square3} style={propsStyle}/>
-      <div className={styles.square4} style={propsStyle}/>
-    </div>;
-  }
-}
+  return <Container theme={theme}>
+    <Square1/>
+    <Square2/>
+    <Square3/>
+    <Square4/>
+  </Container>;
+});
 
