@@ -28,7 +28,8 @@ module.exports = {
   output: {
     filename: 'index.js',
     libraryTarget: 'umd',
-    path: '/dist'
+    // eslint-disable-next-line no-undef
+    path: __dirname + '/dist'
   },
   plugins: [
     new DtsBundlePlugin()
