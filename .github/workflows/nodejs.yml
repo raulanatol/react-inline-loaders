@@ -1,0 +1,37 @@
+name: Node CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: GitHub Action for Yarn
+        uses: Borales/actions-yarn@1.1.0
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: install, build lint and test
+        run: |
+          yarn install
+          yarn build
+          yarn lint
+          yarn test
+
+      - name: storybook and publish
+        run: |
+          yarn build-storybook
+        env:
+          CI: true
+
+
