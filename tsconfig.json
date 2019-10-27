@@ -10,20 +10,11 @@
     "suppressImplicitAnyIndexErrors": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": false,
-    "noImplicitAny": false,
     "declaration": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
     "declarationDir": ".dts",
     "experimentalDecorators": true,
     "typeRoots": [
       "node_modules/@types"
-    ],
-    "rootDirs": [
-      "src",
-      "stories"
     ]
   },
   "include": [

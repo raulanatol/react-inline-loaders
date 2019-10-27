@@ -5,7 +5,10 @@
     "es6": true,
     "jest/globals": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "react-app",
+    "plugin:jsx-a11y/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -17,7 +20,8 @@
   "plugins": [
     "react",
     "jest",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "no-only-tests"
   ],
   "rules": {
     "indent": [
@@ -42,6 +46,13 @@
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error"
+    "jest/valid-expect": "error",
+    "no-unused-vars": "error",
+    "no-multiple-empty-lines": "error",
+    "curly": [
+      2,
+      "all"
+    ],
+    "no-only-tests/no-only-tests": "error"
   }
 }
