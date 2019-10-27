@@ -1,5 +1,4 @@
-import React, { memo } from 'react';
-
+import React, { FC, memo } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
@@ -24,7 +23,7 @@ const Container = styled.div`
     width: 15px;
     height: 15px;
     opacity: 0.2;
-    background: ${props => props.theme.background};
+    background: ${props => props.color};
     margin: 3px;
     animation: ${animation} 2s infinite;
   }
@@ -54,12 +53,10 @@ interface CenterSquaresLoaderProps {
   color?: string;
 }
 
-export const CenterSquaresLoader = memo((props: CenterSquaresLoaderProps) => {
-  const theme = {
-    background: props.color || '#666'
-  };
+export const CenterSquaresLoader: FC<CenterSquaresLoaderProps> = memo((props) => {
+  const { color = '#4092de' } = props;
 
-  return <Container theme={theme}>
+  return <Container color={color}>
     <Square1/>
     <Square2/>
     <Square3/>

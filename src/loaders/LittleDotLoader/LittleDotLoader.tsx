@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 
@@ -70,7 +70,9 @@ export interface LittleDotLoaderProps {
   color?: string;
 }
 
-export const LittleDotLoader = ({ color = '#666' }: LittleDotLoaderProps) => {
+export const LittleDotLoader: FC<LittleDotLoaderProps> = (props) => {
+  const { color = '#4092de' } = props;
+
   return <Loader>
     <div>
       <Pulse color={color}/>

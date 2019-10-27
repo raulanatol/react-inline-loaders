@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 
@@ -30,7 +30,7 @@ const Container = styled.div`
     width: 15px;
     height: 15px;
     opacity: 1;
-    background: ${props => props.theme.background};
+    background: ${props => props.color};
     margin: 3px;
     animation: ${animation} 2.8s infinite;
   }
@@ -59,13 +59,10 @@ export interface ChasingSquaresLoaderProps {
   color?: string;
 }
 
-export const ChasingSquaresLoader = (props: ChasingSquaresLoaderProps) => {
+export const ChasingSquaresLoader: FC<ChasingSquaresLoaderProps> = (props) => {
+  const { color = '#4092de' } = props;
 
-  const theme = {
-    background: props.color || '#666'
-  };
-
-  return <Container theme={theme}>
+  return <Container color={color}>
     <Square1/>
     <Square2/>
     <Square3/>

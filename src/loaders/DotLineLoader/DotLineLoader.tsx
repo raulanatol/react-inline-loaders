@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
@@ -24,7 +24,7 @@ const Container = styled.div`
   
   & > div {
     display: inline-block;
-    background: ${props => props.theme.background};
+    background: ${props => props.color};
     height: 5px;
     width: 5px;
     opacity: 0;
@@ -34,29 +34,27 @@ const Container = styled.div`
   }
 `;
 
-const Dot = styled.div`
+const Dot = styled.div<any>`
   animation: ${animation} 4s infinite;
-  animation-delay: ${props => props.theme.delay};
+  animation-delay: ${props => props.delay};
 `;
 
 export interface DotLineLoaderProps {
   color?: string;
 }
 
-export const DotLineLoader = memo((props: DotLineLoaderProps) => {
-  const theme = {
-    background: props.color || '#666'
-  };
+export const DotLineLoader: FC<DotLineLoaderProps> = memo((props) => {
+  const { color = '#4092de' } = props;
 
-  return <Container theme={theme}>
-    <Dot theme={{ delay: '.8s' }}/>
-    <Dot theme={{ delay: '.7s' }}/>
-    <Dot theme={{ delay: '.6s' }}/>
-    <Dot theme={{ delay: '.5s' }}/>
-    <Dot theme={{ delay: '.4s' }}/>
-    <Dot theme={{ delay: '.3s' }}/>
-    <Dot theme={{ delay: '.2s' }}/>
-    <Dot theme={{ delay: '.1s' }}/>
+  return <Container color={color}>
+    <Dot delay=".8s"/>
+    <Dot delay=".7s"/>
+    <Dot delay=".6s"/>
+    <Dot delay=".5s"/>
+    <Dot delay=".4s"/>
+    <Dot delay=".3s"/>
+    <Dot delay=".2s"/>
+    <Dot delay=".1s"/>
   </Container>;
 });
 

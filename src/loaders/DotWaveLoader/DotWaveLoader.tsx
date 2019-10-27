@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
@@ -68,7 +68,8 @@ export interface DotWaveLoaderProps {
   color?: string;
 }
 
-export const DotWaveLoader = memo(({ color = '#666666' }: DotWaveLoaderProps) => {
+export const DotWaveLoader: FC<DotWaveLoaderProps> = memo((props) => {
+  const { color = '#4092de' } = props;
   return <Container>
     <LoaderDot>
       <Dot color={color}/>
