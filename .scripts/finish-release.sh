@@ -54,12 +54,17 @@ function gitPush {
   git push && git push --tags
 }
 
+
+function generate_release_notes {
+  npx gren release --username=raulanatol --repo=react-inline-loaders
+}
+
 uncommitted_changes
 check_branch
 change_version
 exists_tag
 publish
 gitPush
-
+generate_release_notes
 
 
