@@ -23,7 +23,7 @@ jobs:
           WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
           BOT_USERNAME: Chalmers
           SLACK_CHANNEL: remove
-          MESSAGE: "SUCCESS"
+          MESSAGE: ${{job.status}}
 
 #      - name: GitHub Action for Yarn
 #        uses: Borales/actions-yarn@1.1.0
