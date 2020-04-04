@@ -18,6 +18,11 @@ jobs:
           SLACK_CHANNEL: remove
           ICON_EMOJI: "::chalmers::"
           MESSAGE: "test message"
+      - name: Test results
+        run: |
+          echo "a >> ${{steps}}"
+          echo "b >> ${{env}}"
+
 
 #      - name: GitHub Action for Yarn
 #        uses: Borales/actions-yarn@1.1.0
