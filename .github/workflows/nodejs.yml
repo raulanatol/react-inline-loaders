@@ -16,7 +16,7 @@ jobs:
           WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
           BOT_USERNAME: Chalmers
           SLACK_CHANNEL: remove
-          MESSAGE: "FAILURE"
+          MESSAGE: ${{job.status}}
       - uses: raulanatol/slack-messages-action@master
         if: success()
         env:
