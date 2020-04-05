@@ -3,37 +3,40 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    #    strategy:
-    #      matrix:
-    #        node-version: [8.x, 10.x, 12.x]
+      strategy:
+        matrix:
+          node-version: [8.x, 10.x, 12.x]
 
     steps:
       - uses: actions/checkout@v2
-      - uses: raulanatol/slack-messages-action@master
+
+      - name: GitHub Action for Yarn
+        uses: Borales/actions-yarn@1.1.0
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: install
+        run: yarn install
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
+        run: yarn test
+
+      - name: Build
+        run: yarn dist
+
+      - name: storybook and publish
+        run: |
+          yarn build-storybook
+        env:
+          CI: true
+
+      - uses: raulanatol/slack-messages-github-action@v1.0.0
         env:
           WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-          BOT_USERNAME: Chalmers
-          SLACK_CHANNEL: remove
-          MESSAGE: Action response
+          SLACK_CHANNEL: cicd
+          MESSAGE: "Compilation ends"
           STATUS: ${{job.status}}
-
-#      - name: GitHub Action for Yarn
-#        uses: Borales/actions-yarn@1.1.0
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#
-#      - name: install, build lint and test
-#        run: |
-#          yarn install
-#          yarn dist
-#          yarn lint
-#          yarn test
-#
-#      - name: storybook and publish
-#        run: |
-#          yarn build-storybook
-#        env:
-#          CI: true
-
 
