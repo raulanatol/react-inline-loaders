@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/raulanatol/react-inline-loaders.svg?branch=master)](https://travis-ci.org/raulanatol/react-inline-loaders)
+![Build Status](https://github.com/raulanatol/react-inline-loaders/workflows/Node%20CI/badge.svg)
 [![Code Climate](https://codeclimate.com/github/raulanatol/react-inline-loaders/badges/gpa.svg)](https://codeclimate.com/github/raulanatol/react-inline-loaders)
 
 
