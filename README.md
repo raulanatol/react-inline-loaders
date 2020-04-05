@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/raulanatol/react-inline-loaders.svg?branch=master)](https://travis-ci.org/raulanatol/react-inline-loaders)
 [![Code Climate](https://codeclimate.com/github/raulanatol/react-inline-loaders/badges/gpa.svg)](https://codeclimate.com/github/raulanatol/react-inline-loaders)
 
+
+
 # react-inline-loaders - Loaders components for React.js
 
 More information <http://natol.es/react-inline-loaders/>
