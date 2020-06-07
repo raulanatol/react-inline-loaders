@@ -1,4 +1,4 @@
-name: Node CI
+name: Build
 on: [push]
 jobs:
   build:
@@ -6,37 +6,24 @@ jobs:
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
-
     steps:
       - uses: actions/checkout@v2
-
-      - name: GitHub Action for Yarn
-        uses: Borales/actions-yarn@1.1.0
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: install
-        run: yarn install
-
-      - name: Lint
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Linter
         run: yarn lint
-
       - name: Test
         run: yarn test
-
       - name: Build
-        run: yarn dist
-
+        run: yarn build
       - name: storybook and publish
         run: |
           yarn build-storybook
         env:
           CI: true
-
       - uses: raulanatol/slack-message-github-action@v1.0.0
         env:
           WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
           SLACK_CHANNEL: cicd
           MESSAGE: "Compilation ends"
           STATUS: ${{job.status}}
-
