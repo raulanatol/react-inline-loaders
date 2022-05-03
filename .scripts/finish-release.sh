@@ -34,6 +34,7 @@ verify_uncommitted_changes() {
 
 publish() {
   npm publish --access public
+  git push
   git push --tags
 }
 
