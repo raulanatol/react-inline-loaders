@@ -1,70 +1,37 @@
 #!/usr/bin/env bash
 
-set -eu
+set -e
 
-function error {
-  echo "#----------------------------"
-  echo "# ERROR: $1"
-  echo "#----------------------------\n"
+error() {
+  echo "🚨 $1"
   exit 1
 }
 
 if [ $# != 1 ]; then
-  error "Please specify the version number: npm run finish-release 10.0.1"
+  error "Please specify name of version update (ie patch) patch|minor|major"
 fi
 
-npm run lint
-npm run test
-npm run dist
+VERSION_PARAM=$1
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-NEW_VERSION=$1
-BRANCH=`git rev-parse --abbrev-ref HEAD`
-
-function change_version {
-  npm version ${NEW_VERSION}
+change_version() {
+  NEW_VERSION=$(npm version "${VERSION_PARAM}")
+  echo "::set-output name=tagName::${NEW_VERSION}"
 }
 
-function check_branch {
-  if [ ${BRANCH} == 'master' ]; then
-      echo "Master branch"
-  else
-    error "Invalid branch name ${BRANCH}"
-   fi
-}
-
-function exists_tag {
-  if git rev-parse v${NEW_VERSION} >/dev/null 2>&1; then
-    echo "Found tag"
-  else
-    error "Tag not found"
-  fi
-}
-
-function uncommitted_changes {
-  if [[ `git status --porcelain` ]]; then
+verify_uncommitted_changes() {
+  if [ $(git status --porcelain) ]; then
+    git status
     error "There are uncommitted changes in the working tree."
   fi
 }
 
-function publish {
+publish() {
   npm publish --access public
+  git push --tags
 }
 
-function gitPush {
-  git push && git push --tags
-}
-
-
-function generate_release_notes {
-  npx gren release --username=raulanatol --repo=react-inline-loaders
-}
-
-uncommitted_changes
-check_branch
+verify_uncommitted_changes
+verify_main_branch
 change_version
-exists_tag
 publish
-gitPush
-generate_release_notes
-
-
