@@ -13,3 +13,7 @@ package-lock.json
 .publishrc
 Makefile
 .codeclimate.yml
+gh-pages
+.bithoundrc
+.eslintignore
+.github
