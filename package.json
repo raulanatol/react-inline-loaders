@@ -22,10 +22,10 @@
   "types": "dist/esm/index.d.ts",
   "scripts": {
     "analyze": "source-map-explorer lib/index.js",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o gh-pages",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "build:esm": "tsc",
-    "clean": "shx rm -rf dist build",
+    "clean": "shx rm -rf dist gh-pages",
     "dist": "npm run build:esm && npm run build:cjs",
     "lint": "eslint --max-warnings 0 . --ext .ts,.tsx",
     "postpublish": "npm run build-storybook && gh-pages -d gh-pages",

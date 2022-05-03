@@ -24,6 +24,9 @@ check:
 storybook:
 	@npm run storybook
 
+build-storybook: clean
+	@npm run build-storybook
+
 build: clean check test
 	@echo "👩‍🏭 Building..."
 	@npm run dist
