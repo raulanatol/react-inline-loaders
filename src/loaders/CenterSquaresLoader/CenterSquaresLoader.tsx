@@ -53,12 +53,11 @@ export interface CenterSquaresLoaderProps {
   color?: string;
 }
 
-export const CenterSquaresLoader: FC<CenterSquaresLoaderProps> = ({ color = '#4092de' }) => {
-  return <Container color={color} role="status" aria-label="loading">
+export const CenterSquaresLoader: FC<CenterSquaresLoaderProps> = ({ color = '#4092de' }) =>
+  <Container color={color} role="status" aria-label="loading">
     <Square1/>
     <Square2/>
     <Square3/>
     <Square4/>
   </Container>;
-};
 

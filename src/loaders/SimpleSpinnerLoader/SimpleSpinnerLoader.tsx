@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { keyframes } from '@emotion/react';
+import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 
 const rotateForeverAnimation = keyframes`

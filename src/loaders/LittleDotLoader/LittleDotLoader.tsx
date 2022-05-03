@@ -70,13 +70,10 @@ export interface LittleDotLoaderProps {
   color?: string;
 }
 
-export const LittleDotLoader: FC<LittleDotLoaderProps> = (props) => {
-  const { color = '#4092de' } = props;
-
-  return <Loader>
+export const LittleDotLoader: FC<LittleDotLoaderProps> = ({ color = '#4092de' }) =>
+  <Loader>
     <div role="status" aria-label="loading">
       <Pulse color={color}/>
       <Explosion color={color}/>
     </div>
   </Loader>;
-};
