@@ -8,7 +8,7 @@ config/
 .eslintrc.js
 tsconfig.json
 .storybook
-yarn.lock
+package-lock.json
 .nvmrc
 .publishrc
 Makefile

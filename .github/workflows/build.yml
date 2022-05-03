@@ -9,16 +9,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: npm ci
       - name: Linter
-        run: yarn lint
+        run: make check
       - name: Test
-        run: yarn test
+        run: make test
       - name: Build
-        run: yarn dist
+        run: npm run dist
       - name: storybook and publish
         run: |
-          yarn build-storybook
+          npm run build-storybook
         env:
           CI: true
       - uses: raulanatol/slack-message-github-action@v1.0.0

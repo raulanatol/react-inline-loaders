@@ -5,31 +5,31 @@ start:
 
 init:
 	@echo "Initialising the project"
-	@yarn install
+	@npm run install
 
 clean:
 	@echo "🛁 Cleaning..."
-	@yarn clean
+	@npm run clean
 
 clean_all:
 	@echo "🧨 Clean all"
-	@rm -Rf node_modules yarn.lock
+	@rm -Rf node_modules package-lock.json
 
 test:
 	@echo "Testing..."
-	@yarn test
+	@npm run test
 
 check:
 	@echo "🧪 Check code"
-	@yarn lint
-	@yarn type-check
+	@npm run lint
+	@npm run type-check
 
 storybook:
-	@yarn storybook
+	@npm run storybook
 
 build: clean check test
 	@echo "👩‍🏭 Building..."
-	@yarn dist
+	@npm run dist
 
 publish: build
 	@echo "📦 Publish package..."
