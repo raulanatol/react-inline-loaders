@@ -4,5 +4,3 @@ dist-modules/
 node_modules/
 dist/
 .cache
-.dts
-lib/
