@@ -18,3 +18,7 @@ stories
 .storybook
 yarn.lock
 stats.json
+.nvmrc
+Makefile
+.publishrc
+.codeclimate.yml
