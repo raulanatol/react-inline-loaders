@@ -19,6 +19,12 @@ change_version() {
   echo "::set-output name=tagName::${NEW_VERSION}"
 }
 
+verify_main_branch() {
+  if [ ${BRANCH} != 'main' ]; then
+    error "Invalid branch name ${BRANCH}"
+  fi
+}
+
 verify_uncommitted_changes() {
   if [ $(git status --porcelain) ]; then
     git status
