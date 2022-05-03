@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { LittleDotLoader } from '../LittleDotLoader';
 import { render, screen } from '@testing-library/react';
 

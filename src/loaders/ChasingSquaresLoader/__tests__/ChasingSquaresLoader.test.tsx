@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { ChasingSquaresLoader } from '../ChasingSquaresLoader';
 import { render, screen } from '@testing-library/react';
+import React from 'react';
 
 describe('ChasingSquaresLoader', () => {
   it('should render 4 squares', () => {

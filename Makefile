@@ -1,11 +1,8 @@
 .DEFAULT_GOAL := build
 
-start:
-	@npm run start $1
-
 init:
 	@echo "Initialising the project"
-	@npm run install
+	@npm install
 
 clean:
 	@echo "🛁 Cleaning..."

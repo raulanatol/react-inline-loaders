@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { DotLineLoader } from '../DotLineLoader';
 import { render, screen } from '@testing-library/react';
 

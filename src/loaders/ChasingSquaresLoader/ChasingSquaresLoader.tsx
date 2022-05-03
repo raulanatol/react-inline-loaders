@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { keyframes } from '@emotion/core';
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 const animation = keyframes`
