@@ -21,7 +21,7 @@ const Container = styled.div`
   width: 45%;
   margin: 5%;
   position: relative;
-  
+
   & > div {
     display: inline-block;
     background: ${props => props.color};
@@ -43,10 +43,8 @@ export interface DotLineLoaderProps {
   color?: string;
 }
 
-export const DotLineLoader: FC<DotLineLoaderProps> = memo((props) => {
-  const { color = '#4092de' } = props;
-
-  return <Container color={color}>
+export const DotLineLoader: FC<DotLineLoaderProps> = memo(({ color = '#4092de' }) =>
+  <Container color={color} role="status" aria-label="loading">
     <Dot delay=".8s"/>
     <Dot delay=".7s"/>
     <Dot delay=".6s"/>
@@ -55,6 +53,5 @@ export const DotLineLoader: FC<DotLineLoaderProps> = memo((props) => {
     <Dot delay=".3s"/>
     <Dot delay=".2s"/>
     <Dot delay=".1s"/>
-  </Container>;
-});
+  </Container>);
 

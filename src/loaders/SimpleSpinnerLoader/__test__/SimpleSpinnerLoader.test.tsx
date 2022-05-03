@@ -1,25 +1,26 @@
 import React from 'react';
 import { SimpleSpinnerLoader } from '../SimpleSpinnerLoader';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 describe('SimpleSpinnerLoader', () => {
-  test('should render a spinner', () => {
-    const { container } = render(<SimpleSpinnerLoader/>);
-    expect(container.getElementsByTagName('div')[0].children).toHaveLength(1);
+  it('should render a spinner', () => {
+    render(<SimpleSpinnerLoader/>);
   });
 
-  test('should render a red spinner', () => {
-    const { container } = render(<SimpleSpinnerLoader color="#FF0000"/>);
-    const base = container.getElementsByTagName('div')[0];
+  it('should render a red spinner', () => {
+    render(<SimpleSpinnerLoader color="#FF0000"/>);
+
+    const base = screen.getByRole('status');
     expect(base).toHaveStyle('background-color: transparent');
-    expect(base.children[0]).toHaveStyle('background-color: transparent');
-    expect(base.children[0]).toHaveStyle('border-right-color: transparent');
-    expect(base.children[0]).toHaveStyle('border-bottom-color: #FF0000');
+    expect(base.firstChild).toHaveStyle('background-color: transparent');
+    expect(base.firstChild).toHaveStyle('border-right-color: transparent');
+    expect(base.firstChild).toHaveStyle('border-bottom-color: #FF0000');
   });
 
-  test('should render a black spinner with white background', () => {
-    const { container } = render(<SimpleSpinnerLoader color="#000" backgroundColor="#FFF"/>);
-    const spinner = container.getElementsByTagName('div')[0].children[0];
+  it('should render a black spinner with white background', () => {
+    render(<SimpleSpinnerLoader color="#000" backgroundColor="#FFF"/>);
+
+    const spinner = screen.getByRole('status').firstChild;
     expect(spinner).toHaveStyle('background-color: #FFF');
     expect(spinner).toHaveStyle('border-bottom-color: #000');
   });

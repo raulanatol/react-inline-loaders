@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
@@ -17,7 +17,7 @@ const Container = styled.div`
   width: 50px;
   line-height: 10px;
   height: 50px;
-  
+
   & > div {
     display: inline-block;
     width: 15px;
@@ -49,18 +49,15 @@ const Square4 = styled.div`
   transform: translate(0, 25px);
 `;
 
-interface CenterSquaresLoaderProps {
+export interface CenterSquaresLoaderProps {
   color?: string;
 }
 
-export const CenterSquaresLoader: FC<CenterSquaresLoaderProps> = memo((props) => {
-  const { color = '#4092de' } = props;
-
-  return <Container color={color}>
+export const CenterSquaresLoader: FC<CenterSquaresLoaderProps> = ({ color = '#4092de' }) =>
+  <Container color={color} role="status" aria-label="loading">
     <Square1/>
     <Square2/>
     <Square3/>
     <Square4/>
   </Container>;
-});
 

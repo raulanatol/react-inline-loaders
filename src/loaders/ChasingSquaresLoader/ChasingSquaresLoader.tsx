@@ -24,7 +24,7 @@ const Container = styled.div`
   width: 50px;
   line-height: 10px;
   height: 50px;
-  
+
   & > div {
     display: inline-block;
     width: 15px;
@@ -59,13 +59,10 @@ export interface ChasingSquaresLoaderProps {
   color?: string;
 }
 
-export const ChasingSquaresLoader: FC<ChasingSquaresLoaderProps> = (props) => {
-  const { color = '#4092de' } = props;
-
-  return <Container color={color}>
+export const ChasingSquaresLoader: FC<ChasingSquaresLoaderProps> = ({ color = '#4092de' }) =>
+  <Container color={color} role="status" aria-label="loading">
     <Square1/>
     <Square2/>
     <Square3/>
     <Square4/>
   </Container>;
-};

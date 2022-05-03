@@ -4,4 +4,4 @@ dist-modules/
 node_modules/
 dist/
 .cache
-.dts
+storybook-static

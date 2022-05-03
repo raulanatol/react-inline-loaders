@@ -40,7 +40,7 @@ export interface SimpleSpinnerLoaderProps {
 
 export const SimpleSpinnerLoader: FC<SimpleSpinnerLoaderProps> = memo((props) => {
   const { color = '#666', backgroundColor = 'transparent' } = props;
-  return <Container color={backgroundColor}>
+  return <Container color={backgroundColor} role="status" aria-label="loading">
     <Spinner color={color} backgroundColor={backgroundColor}/>
   </Container>;
 });
