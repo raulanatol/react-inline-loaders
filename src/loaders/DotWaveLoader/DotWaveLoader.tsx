@@ -71,7 +71,7 @@ export interface DotWaveLoaderProps {
 export const DotWaveLoader: FC<DotWaveLoaderProps> = memo((props) => {
   const { color = '#4092de' } = props;
   return <Container>
-    <LoaderDot>
+    <LoaderDot role="status" aria-label="loading">
       <Dot color={color}/>
       <Dot2 color={color}/>
       <Dot3 color={color}/>

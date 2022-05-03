@@ -17,7 +17,7 @@ const Container = styled.div`
   width: 50px;
   line-height: 10px;
   height: 50px;
-  
+
   & > div {
     display: inline-block;
     width: 15px;
@@ -56,7 +56,7 @@ interface CenterSquaresLoaderProps {
 export const CenterSquaresLoader: FC<CenterSquaresLoaderProps> = memo((props) => {
   const { color = '#4092de' } = props;
 
-  return <Container color={color}>
+  return <Container color={color} role="status" aria-label="loading">
     <Square1/>
     <Square2/>
     <Square3/>

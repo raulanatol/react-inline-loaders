@@ -1,18 +1,20 @@
 import * as React from 'react';
 import { DotLineLoader } from '../DotLineLoader';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 describe('DotLineLoader', () => {
-  test('should render 8 dots', () => {
-    const { container } = render(<DotLineLoader/>);
-    expect(container.getElementsByTagName('div')[0].children).toHaveLength(8);
+  it('should render 8 dots', () => {
+    render(<DotLineLoader/>);
+    expect(screen.getByRole('status').children).toHaveLength(8);
   });
 
-  test('should render 8 red dots', () => {
+  it('should render 8 red dots', () => {
     const color = '#FF0000';
     const expectedStyle = `background-color: ${color}`;
-    const { container } = render(<DotLineLoader color={color}/>);
-    const dots = container.getElementsByTagName('div')[0].children;
+
+    render(<DotLineLoader color={color}/>);
+
+    const dots = screen.getByRole('status').children;
     expect(dots[0]).toHaveStyle(expectedStyle);
     expect(dots[1]).toHaveStyle(expectedStyle);
     expect(dots[2]).toHaveStyle(expectedStyle);

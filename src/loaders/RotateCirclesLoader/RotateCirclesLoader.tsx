@@ -1,4 +1,4 @@
-import React, { memo, FC } from 'react';
+import React, { FC, memo } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
@@ -74,7 +74,7 @@ export interface RotateCirclesLoaderProps {
 
 export const RotateCirclesLoader: FC<RotateCirclesLoaderProps> = memo((props) => {
   const { color1 = '#666', color2 = '#066' } = props;
-  return <Loader>
+  return <Loader role="status" aria-label="loading">
     <Circle1 color={color1}/>
     <Circle2 color={color2}/>
   </Loader>;

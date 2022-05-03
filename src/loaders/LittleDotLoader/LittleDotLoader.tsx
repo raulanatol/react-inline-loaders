@@ -74,7 +74,7 @@ export const LittleDotLoader: FC<LittleDotLoaderProps> = (props) => {
   const { color = '#4092de' } = props;
 
   return <Loader>
-    <div>
+    <div role="status" aria-label="loading">
       <Pulse color={color}/>
       <Explosion color={color}/>
     </div>

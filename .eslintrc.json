@@ -1,3 +1,6 @@
 {
-  "extends": "@cowcoders/eslint-config/react"
+  "extends": "@cowcoders/eslint-config/react",
+  "rules": {
+    "testing-library/no-node-access": "off"
+  }
 }

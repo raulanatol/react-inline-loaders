@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { keyframes } from '@emotion/core';
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 const rotateForeverAnimation = keyframes`
@@ -40,7 +40,7 @@ export interface SimpleSpinnerLoaderProps {
 
 export const SimpleSpinnerLoader: FC<SimpleSpinnerLoaderProps> = memo((props) => {
   const { color = '#666', backgroundColor = 'transparent' } = props;
-  return <Container color={backgroundColor}>
+  return <Container color={backgroundColor} role="status" aria-label="loading">
     <Spinner color={color} backgroundColor={backgroundColor}/>
   </Container>;
 });
