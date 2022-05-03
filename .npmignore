@@ -5,7 +5,7 @@ config/
 .idea/
 .editorconfig
 .gitignore
-.eslintrc.json
+.eslintrc.js
 tsconfig.json
 .storybook
 yarn.lock

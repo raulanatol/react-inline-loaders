@@ -4,3 +4,4 @@ dist-modules/
 node_modules/
 dist/
 .cache
+storybook-static
