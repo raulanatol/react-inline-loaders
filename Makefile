@@ -28,6 +28,14 @@ build: clean check test
 	@echo "👩‍🏭 Building..."
 	@npm run dist
 
-publish: build
+publish_major: build
 	@echo "📦 Publish package..."
-	@./.scripts/finish-release.sh
+	@./.scripts/finish-release.sh major
+
+publish_minor: build
+	@echo "📦 Publish package..."
+	@./.scripts/finish-release.sh minor
+
+publish_patch: build
+	@echo "📦 Publish package..."
+	@./.scripts/finish-release.sh patch
